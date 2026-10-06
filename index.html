@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Frame Knowledge Representation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>VYAS HOSPITAL</h1>
+        <p>Frame-Based Knowledge Representation System</p>
+    </header>
+
+    <div class="container">
+
+        <!-- MENU -->
+        <aside class="menu">
+
+            <h2>Menu</h2>
+
+            <button onclick="showFrame('home')">🏠 Home</button>
+            <button onclick="showFrame('patient')">👨‍⚕️ Patient Frame</button>
+            <button onclick="showFrame('doctor')">🩺 Doctor Frame</button>
+            <button onclick="showFrame('room')">🛏️ Room Frame</button>
+            <button onclick="showFrame('admission')">📋 Admission Frame</button>
+            <button onclick="showFrame('billing')">💰 Billing Frame</button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- HOME -->
+            <section id="home" class="frame">
+
+                <h2>Hospital Knowledge Base</h2>
+
+                <div class="welcome">
+                    <h3>Frame-Based Knowledge Representation</h3>
+
+                    <p>
+                        This system represents hospital information
+                        using frames, slots and values.
+                    </p>
+
+                    <div class="cards">
+
+                        <div class="card">
+                            <h3>👨‍⚕️ Patient</h3>
+                            <p>Patient information</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🩺 Doctor</h3>
+                            <p>Doctor information</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🛏️ Room</h3>
+                            <p>Room information</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>📋 Admission</h3>
+                            <p>Admission information</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- PATIENT FRAME -->
+            <section id="patient" class="frame hidden">
+
+                <h2>Patient Frame</h2>
+
+                <div class="form-grid">
+
+                    <label>Patient ID</label>
+                    <input id="patientId" value="P1001">
+
+                    <label>Name</label>
+                    <input id="patientName" value="Tarun">
+
+                    <label>Gender</label>
+
+                    <div>
+                        <input type="radio" name="gender" value="Male" checked>
+                        Male
+
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </div>
+
+                    <label>Age</label>
+                    <input id="age" value="26">
+
+                    <label>Phone</label>
+                    <input id="phone" value="1234567890">
+
+                    <label>Address</label>
+                    <input id="address" value="Ajmer">
+
+                    <label>Disease</label>
+                    <input id="disease" value="Corona">
+
+                    <label>Blood Group</label>
+
+                    <select id="blood">
+                        <option>O+</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option>AB+</option>
+                        <option>O-</option>
+                    </select>
+
+                </div>
+
+                <button class="save" onclick="savePatient()">
+                    Save Patient Frame
+                </button>
+
+                <div id="patientOutput" class="output"></div>
+
+            </section>
+
+
+            <!-- DOCTOR FRAME -->
+            <section id="doctor" class="frame hidden">
+
+                <h2>Doctor Frame</h2>
+
+                <div class="form-grid">
+
+                    <label>Doctor ID</label>
+                    <input id="doctorId" value="D101">
+
+                    <label>Doctor Name</label>
+                    <input id="doctorName" value="Dr. Yash">
+
+                    <label>Specialization</label>
+                    <input id="specialization"
+                           value="General Physician">
+
+                    <label>Experience</label>
+                    <input id="experience" value="8 Years">
+
+                </div>
+
+                <button class="save" onclick="saveDoctor()">
+                    Save Doctor Frame
+                </button>
+
+                <div id="doctorOutput" class="output"></div>
+
+            </section>
+
+
+            <!-- ROOM FRAME -->
+            <section id="room" class="frame hidden">
+
+                <h2>Room Frame</h2>
+
+                <div class="form-grid">
+
+                    <label>Room Number</label>
+                    <input id="roomNo" value="11">
+
+                    <label>Room Type</label>
+
+                    <select id="roomType">
+                        <option>Personal Room</option>
+                        <option>General Ward</option>
+                        <option>ICU</option>
+                        <option>Emergency</option>
+                    </select>
+
+                    <label>Price Per Day</label>
+                    <input id="roomPrice" value="5000">
+
+                    <label>Status</label>
+
+                    <select id="roomStatus">
+                        <option>Available</option>
+                        <option>Occupied</option>
+                    </select>
+
+                </div>
+
+                <button class="save" onclick="saveRoom()">
+                    Save Room Frame
+                </button>
+
+                <div id="roomOutput" class="output"></div>
+
+            </section>
+
+
+            <!-- ADMISSION FRAME -->
+            <section id="admission" class="frame hidden">
+
+                <h2>Admission Frame</h2>
+
+                <div class="form-grid">
+
+                    <label>Patient ID</label>
+                    <input id="adPatient" value="P1001">
+
+                    <label>Doctor</label>
+                    <input id="adDoctor" value="Dr. Yash">
+
+                    <label>Room Number</label>
+                    <input id="adRoom" value="11">
+
+                    <label>Check In</label>
+                    <input type="date" id="checkIn">
+
+                    <label>Check Out</label>
+                    <input type="date" id="checkOut">
+
+                </div>
+
+                <button class="save" onclick="saveAdmission()">
+                    Save Admission Frame
+                </button>
+
+                <div id="admissionOutput" class="output"></div>
+
+            </section>
+
+
+            <!-- BILLING FRAME -->
+            <section id="billing" class="frame hidden">
+
+                <h2>Billing Frame</h2>
+
+                <div class="form-grid">
+
+                    <label>Patient ID</label>
+                    <input id="billPatient" value="P1001">
+
+                    <label>Room Charges</label>
+                    <input type="number" id="roomCharges" value="5000">
+
+                    <label>Doctor Charges</label>
+                    <input type="number" id="doctorCharges" value="2000">
+
+                    <label>Medicine Charges</label>
+                    <input type="number" id="medicineCharges" value="1500">
+
+                </div>
+
+                <button class="save" onclick="calculateBill()">
+                    Generate Bill
+                </button>
+
+                <div id="billOutput" class="output"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
